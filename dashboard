@@ -1,0 +1,35 @@
+Se desarrollo un tablero en Ubidots para la visualización de las variables que se extrajeron desde el PLC y del dispositivo IoT(marca devint), 
+
+que captura información del proceso del baño de pinturas. 
+
+ 
+
+Url: https://industrial.ubidots.com/accounts/signin/ 
+
+Dispositivo: plc_planta_pintura_metal (captura de temperaturas) 
+
+Dispositivo: devint_baño_pinturas(pH y temperatura en el baño de pinturas) 
+
+Tablero: 25 Equipos Planta de Pintura Metal 
+
+ 
+Configuración: 
+ 
+
+El tablero fue desarrollado usando las variables crudas que llegan a los dispositivos plc_planta_pintura_metal y  
+
+devint_baño_pinturas, la página se encuentra separada por bloques donde en la primera parte se ha graficado  
+
+el proceso del baño de pinturas, pH y temperatura, luego se continua presentando las gráficas del pretratamiento,  
+
+horno de polimerizacion y horno de secado. 
+
+ 
+
+Nota: Ubidots no permite generar backups de los tableros creados. 
+
+ 
+
+ 
+
+ 
