@@ -1,0 +1,47 @@
+Arquitectura de la Solución: Extracción y Conectividad IoT 
+
+Esta sección describe el diseño de la arquitectura física, lógica y de red para la adquisición de datos de la planta de pintura y su posterior transmisión a la nube. La solución adopta un enfoque Edge Gateway utilizando una Raspberry Pi 5 para realizar la interfaz entre la red de control (OT) y la red de TI/Internet (IT). 
+
+Componentes de la Arquitectura 
+
+1. Nivel de Control y Operación (OT) 
+
+Controlador Principal: PLC Allen-Bradley CompactLogix 1769-L33ER. Este dispositivo centraliza la lógica del proceso de predesengrase, desengrase, secado y polimerización. 
+
+Módulos de Expansión: Módulos de entradas y salidas (I/O) de la serie 1769 para la lectura de sensores de temperatura (RTD/Termocuplas) y control de contactores/variadores. 
+
+HMI (Interfaz Hombre-Máquina): Pantalla local para la operación en sitio, conectada a la red local del PLC. 
+
+Switch de Red Industrial: Dispositivo de capa 2 encargado de interconectar el puerto Ethernet del CompactLogix, la pantalla HMI y el Gateway de extracción. 
+
+2. Nivel de Extracción y Borde (Edge Gateway) 
+
+Hardware (Raspberry Pi 5): Actúa como el puente de comunicación (Gateway) gracias a su capacidad de procesamiento y su doble interfaz de red. 
+
+Interfaz Ethernet (eth0): Conectada mediante cable UTP al switch de la red local del PLC. Esta interfaz se configura con una IP estática dentro del mismo segmento de red del CompactLogix (Red OT privada, sin salida a internet). 
+
+Interfaz Wi-Fi (wlan0): Conectada a la red inalámbrica de la planta que cuenta con salida a internet (Red IT/Corporativa). 
+
+Software (Node-RED): Motor de flujos de datos que corre sobre el sistema operativo de la Raspberry Pi 5. 
+
+Realiza el barrido cíclico de los Tags del PLC mediante protocolo industrial EtherNet/IP (usando nodos nativos/contrib de comunicación CIP). 
+
+Formatea las variables extraídas en cargas útiles estructuradas (JSON). 
+
+Envía los datos hacia la API de Ubidots utilizando el protocolo MQTT. 
+
+3. Nivel de Plataforma de Datos (Cloud) 
+
+Ubidots: Servicio IoT en la nube encargado de la ingesta de datos a través de canales seguros. Almacena las variables temporales, procesa las reglas de eventos (alertas) y renderiza el Dashboard operativo para los usuarios finales. 
+
+Segmentación y Seguridad de Red 
+
+Nota de Seguridad Industrial: Con esta configuración se garantiza que la red de control del PLC (OT) permanezca completamente aislada de internet. La Raspberry Pi 5 actúa como un diodo de datos lógico: consume los datos del switch del PLC por cable de forma local y los transmite por Wi-Fi de forma externa, evitando que agentes externos tengan acceso directo a la IP del CompactLogix 1769-L33ER. 
+
+ 
+
+ 
+
+ 
+
+ 
