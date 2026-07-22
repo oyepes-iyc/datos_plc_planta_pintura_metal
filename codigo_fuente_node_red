@@ -1,0 +1,261 @@
+[ 
+
+    { 
+
+        "id": "28117d862cab1eab", 
+
+        "type": "tab", 
+
+        "label": "PLC-UBIDOTS", 
+
+        "disabled": false, 
+
+        "info": "", 
+
+        "env": [] 
+
+    }, 
+
+    { 
+
+        "id": "bd759bb4c4ec3b16", 
+
+        "type": "function", 
+
+        "z": "28117d862cab1eab", 
+
+        "name": "preparar datos", 
+
+        "func": "let data = {\n    \"Set_point_temperatura_tanque_predesengrase\": msg.payload.SPTanqPredeseng,\n    \"Temperatura_tanque_predesengrase\": msg.payload.TempTanquePredeseng,\n    \"Set_point_temperatura_tanque_desengrase\": msg.payload.SPTanqDeseng,\n    \"Temperatura_tanque_desengrase\": msg.payload.TempTanqueDeseng,\n    \"Set_point_temperatura_horno_polimerizacion\": msg.payload.SPPoli,\n    \"Temperatura_horno_polimerizacion\": msg.payload.TempHornoPoli,\n    \"Set_point_temperatura_camara_combustion_polimerizacion\": msg.payload.SPTempCamPoli,\n    \"Temperatura_camara_combustion_polimerizacion\": msg.payload.TempCamaraPoli,\n    \"Set_point_temperatura_aire_retorno_polimerizacion\": msg.payload.SPTempAirRetPoli,\n    \"Temperatura_aire_retorno_polimerizacion\": msg.payload.TempAireRetPoli,\n    \"Set_point_temperatura_horno_secado\": msg.payload.SPSec,\n    \"Temperatura_horno_secado\": msg.payload.TempHornoSec,\n    \"Set_point_temperatura_camara_combustion_secado\": msg.payload.SPTempCamSec,\n    \"Temperatura_camara_combustion_secado\": msg.payload.TempCamaraSec,\n    \"Set_point_temperatura_aire_retorno_secado\": msg.payload.SPTempAirRetSec,\n    \"Temperatura_aire_retorno_secado\": msg.payload.TempAireRetSec\n};\nmsg.payload = data;\nnode.warn({ \"salida a Ubidots\": msg.payload });\nreturn msg;", 
+
+        "outputs": 1, 
+
+        "timeout": 0, 
+
+        "noerr": 0, 
+
+        "initialize": "", 
+
+        "finalize": "", 
+
+        "libs": [], 
+
+        "x": 400, 
+
+        "y": 140, 
+
+        "wires": [ 
+
+            [ 
+
+                "700f401578cea6b7" 
+
+            ] 
+
+        ] 
+
+    }, 
+
+    { 
+
+        "id": "5809dfc743ecc2e3", 
+
+        "type": "eth-ip in", 
+
+        "z": "28117d862cab1eab", 
+
+        "endpoint": "16520dbd15f0614e", 
+
+        "mode": "all", 
+
+        "variable": "SPTanqPredeseng", 
+
+        "program": "", 
+
+        "name": "All tags", 
+
+        "x": 230, 
+
+        "y": 140, 
+
+        "wires": [ 
+
+            [ 
+
+                "bd759bb4c4ec3b16" 
+
+            ] 
+
+        ] 
+
+    }, 
+
+    { 
+
+        "id": "700f401578cea6b7", 
+
+        "type": "ubidots_out", 
+
+        "z": "28117d862cab1eab", 
+
+        "name": "RaspberryPiUbidots", 
+
+        "token": "BBUS-rxseKHe7goXiGhHlhSw063O2EFtSB6", 
+
+        "label_device": "", 
+
+        "device_label": "plc_planta_pintura_metal", 
+
+        "tier": "business", 
+
+        "tls_checkbox": false, 
+
+        "x": 620, 
+
+        "y": 140, 
+
+        "wires": [] 
+
+    }, 
+
+    { 
+
+        "id": "16520dbd15f0614e", 
+
+        "type": "eth-ip endpoint", 
+
+        "address": "192.168.1.1", 
+
+        "slot": "0", 
+
+        "cycletime": "60000", 
+
+        "name": "cnx_plc", 
+
+        "vartable": { 
+
+            "": { 
+
+                "SPTanqPredeseng": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "TempTanquePredeseng": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "SPTanqDeseng": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "TempTanqueDeseng": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "SPPoli": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "TempHornoPoli": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "SPTempCamPoli": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "TempCamaraPoli": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "SPTempAirRetPoli": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "TempAireRetPoli": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "SPSec": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "TempHornoSec": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "SPTempCamSec": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "TempCamaraSec": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "SPTempAirRetSec": { 
+
+                    "type": "REAL" 
+
+                }, 
+
+                "TempAireRetSec": { 
+
+                    "type": "REAL" 
+
+                } 
+
+            } 
+
+        } 
+
+    }, 
+
+    { 
+
+        "id": "df18dca8073b1b33", 
+
+        "type": "global-config", 
+
+        "env": [], 
+
+        "modules": { 
+
+            "node-red-contrib-cip-ethernet-ip": "1.1.3", 
+
+            "ubidots-nodered": "2.0.2" 
+
+        } 
+
+    } 
+
+] 
+
+ 
