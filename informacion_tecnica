@@ -1,0 +1,59 @@
+Raspberry 
+
+Credenciales 
+Nombre Dispositivo: raspberry plc pintura metal
+Alias: raspberryplc 
+Contraseña: xxxxxxxxx
+
+Hardware 
+Modelo: Raspberry pi 5 
+Arquitectura: ARM64 (aarch64) 
+
+Sistema Operativo 
+Ubuntu: 24.04.4 LTS (Jammy Jellyfish)
+Kernel: 6.8.0-1047-raspi  
+
+Red 
+Interfaz Ethernet: eth0  conectado a switch industrial red PLC 
+MAC Ethernet: d8:3a:dd:f7:dc:42  
+Dirección IP: 192.168.1.10 
+Interfaz Wi-Fi: wlan0 
+MAC Wi-Fi: d8:3a:dd:f7:dc:43 conectado red WIFI-WMS 
+Dirección IP: 10.1.113.126 
+ 
+Seguridad 
+La organización utiliza Microsoft Defender for Endpoint (MDE). 
+El dispositivo cumple los prerrequisitos principales (ARM64 + Ubuntu 24.04 LTS). 
+El servicio se verifica con el siguiente comando: systemctl status mdatp 
+
+Comandos de consulta 
+
+# Arquitectura 
+uname -m 
+ 
+# Versión de Ubuntu 
+lsb_release -a 
+ 
+# Versión del Kernel
+uname -r 
+ 
+# Interfaces de red 
+ls /sys/class/net 
+ 
+# MAC Ethernet 
+cat /sys/class/net/enP8p1s0/address 
+ 
+# MAC Wi-Fi
+cat /sys/class/net/wlP1p1s0/address 
+
+PLC 
+
+Hardware 
+Marca : Allen Bradley 
+Modelo: CompactLogix 2 1769-L33ER  
+
+Red 
+Dirección IP: 192.168.1.1 
+Puerto: 44818 
+
+Slot: 0 
