@@ -1,0 +1,49 @@
+Identificación de TAGS: 
+
+Predesengrase 
+
+Set Point Temp Tanque predesengrase                    -> SPTanqPredeseng             
+
+Temp tanque predesengrase                              -> TempTanquePredeseng    
+
+  
+
+Desengrase 
+
+Set Point Temp Tanque desengrase                        -> SPTanqDeseng                  
+
+Temp tanque desengrase                                  -> TempTanqueDeseng          
+
+  
+
+Polimerizacion  
+
+SetPoint Temp horno Polimerizacion                      ->  SPPoli 
+
+Temp. Horno - Polimerizacion                            ->  TempHornoPoli                       
+
+Set Point Temp. Camara Combust. - Polimerizacion        ->  SPTempCamPoli 
+
+Temp. Camara Combustion - Polimerizacion                 -> TempCamaraPoli 
+
+Set Point Temp. Aire Retorno - Polimerizacion            -> SPTempAirRetPoli 
+
+Temp. Aire Retorno - Polimerizacion                      -> TempAireRetPoli 
+
+  
+
+Secado  
+
+SetPoint Temp horno secado                               -> SPSec 
+
+Temp. Horno Secado                                       -> TempHornoSec 
+
+SetPoint Temp. Camara Combust. -Secado                   -> SPTempCamSec   
+
+Temp. Camara Combustion - Secado                         -> TempCamaraSec 
+
+SetPoint Temp. Aire Retorno - Secado                     -> SPTempAirRetSec         
+
+Temp. Aire de Retorno - Secado -                         -> TempAireRetSec  
+
+ 
