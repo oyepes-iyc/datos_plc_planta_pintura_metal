@@ -1,0 +1,53 @@
+Historia de Usuario: Monitoreo de Variables Críticas en Planta de Pintura de Metal 
+
+Título: Extracción y visualización en tiempo real de variables de proceso de pintura (pretratamiento y curado) 
+
+Como: 
+
+Ingeniero de procesos / supervisor de planta de pintura. 
+
+Quiero: 
+
+Extraer de forma automática las variables operativas clave del PLC que controla la línea de pintura de metal (etapas de predesengrase, desengrase, secado y polimerización) y visualizarlas en tiempo real en Ubidots. 
+
+Para: 
+
+Asegurar que los tratamientos químicos y térmicos se mantengan dentro de los rangos óptimos de operación, reaccionar rápidamente ante desviaciones que puedan afectar la calidad del acabado de las motocicletas, y contar con un registro histórico de datos para auditorías de calidad. 
+
+ 
+
+Criterios de Aceptación 
+
+1. Extracción de datos (variables clave) 
+
+Etapa de Pretratamiento (Predesengrase y Desengrase): 
+
+Se deben capturar los valores de temperatura de los tanques. 
+
+Etapas de Secado y Polimerización: 
+
+Se deben capturar las curvas de temperatura de los hornos (secado y curado/polimerización). 
+
+Se debe capturar la temperatura de las cámaras de combustión y de retorno de aire 
+
+2. Visualización en Ubidots (Interfaz de Usuario) 
+
+Dashboard Operativo: 
+
+Crear una interfaz visual intuitiva y adaptada a pantallas de planta (monitores de supervisión). 
+
+Mostrar indicadores numéricos (widgets de valor actual) y gráficos de tendencia histórica para las temperaturas de los tanques y hornos. 
+
+Alertas y Notificaciones: 
+
+El sistema en Ubidots debe permitir la configuración de umbrales críticos (por ejemplo, caída de temperatura en el horno de polimerización por debajo del estándar de curado). 
+
+3. Integridad y Disponibilidad de la Información 
+
+Los datos del PLC deben actualizarse en la plataforma Ubidots con una frecuencia definida que permita tomar decisiones oportunas (ej. cada minuto). 
+
+La visualización debe estar disponible de forma remota para los ingenieros de soporte y control de calidad, garantizando acceso seguro mediante credenciales de usuario. 
+
+Este planteamiento define claramente el qué y el para qué, dejando la libertad técnica para definir posteriormente la arquitectura de red (Gateway, protocolos industriales como OPC UA o Modbus, y agentes de software) que ejecutará la integración. 
+
+ 
